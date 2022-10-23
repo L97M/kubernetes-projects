@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pv-claim
+  namespace: mendes
+  labels:
+    app: wordpress
+spec:
+  # Se a linha abaixo nao existir, o kubernetes vai escolher o storageclass default
+  storageClassName: longhorn-delete
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
